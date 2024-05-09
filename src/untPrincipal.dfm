@@ -16,7 +16,7 @@ object frmPrincipal: TfrmPrincipal
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object pnlTitulo: TPanel
     Left = 0
     Top = 0
     Width = 894
@@ -37,7 +37,7 @@ object frmPrincipal: TfrmPrincipal
     ExplicitTop = 3
     ExplicitWidth = 888
   end
-  object Panel2: TPanel
+  object pnlTImageConvert: TPanel
     AlignWithMargins = True
     Left = 3
     Top = 38
@@ -48,7 +48,7 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 1
     ExplicitTop = 44
     ExplicitHeight = 374
-    object Image1: TImage
+    object imgBitmap: TImage
       AlignWithMargins = True
       Left = 5
       Top = 50
@@ -61,7 +61,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitTop = 5
       ExplicitHeight = 323
     end
-    object SpeedButton2: TSpeedButton
+    object btnConverterBitmapToBase64: TSpeedButton
       Left = 2
       Top = 343
       Width = 356
@@ -74,10 +74,10 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = SpeedButton2Click
+      OnClick = btnConverterBitmapToBase64Click
       ExplicitTop = 309
     end
-    object Panel9: TPanel
+    object pnlLocImage: TPanel
       Left = 2
       Top = 2
       Width = 356
@@ -85,7 +85,7 @@ object frmPrincipal: TfrmPrincipal
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
-      object SpeedButton1: TSpeedButton
+      object btnLocArquivo: TSpeedButton
         AlignWithMargins = True
         Left = 323
         Top = 15
@@ -158,13 +158,13 @@ object frmPrincipal: TfrmPrincipal
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000000000000000
           00000000000000000000}
-        OnClick = SpeedButton1Click
+        OnClick = btnLocArquivoClick
         ExplicitLeft = 312
         ExplicitTop = 8
         ExplicitWidth = 23
         ExplicitHeight = 22
       end
-      object Panel10: TPanel
+      object pnlCaminhoArquivo: TPanel
         Left = 0
         Top = 0
         Width = 320
@@ -209,7 +209,7 @@ object frmPrincipal: TfrmPrincipal
       end
     end
   end
-  object Panel3: TPanel
+  object pnlTMemo: TPanel
     AlignWithMargins = True
     Left = 531
     Top = 38
@@ -220,7 +220,7 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 2
     ExplicitTop = 44
     ExplicitHeight = 374
-    object SpeedButton3: TSpeedButton
+    object btnConverterBase64ToBitmap: TSpeedButton
       Left = 2
       Top = 343
       Width = 356
@@ -233,11 +233,11 @@ object frmPrincipal: TfrmPrincipal
       Font.Name = 'Tahoma'
       Font.Style = [fsBold]
       ParentFont = False
-      OnClick = SpeedButton3Click
+      OnClick = btnConverterBase64ToBitmapClick
       ExplicitLeft = 4
       ExplicitTop = 304
     end
-    object Memo1: TMemo
+    object mmBase64: TMemo
       AlignWithMargins = True
       Left = 5
       Top = 5
@@ -250,7 +250,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitHeight = 323
     end
   end
-  object Panel4: TPanel
+  object pnlTImageIcon: TPanel
     AlignWithMargins = True
     Left = 369
     Top = 38
@@ -261,7 +261,7 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 3
     ExplicitTop = 44
     ExplicitHeight = 374
-    object Image2: TImage
+    object imgIcon: TImage
       AlignWithMargins = True
       Left = 3
       Top = 100
@@ -11135,7 +11135,7 @@ object frmPrincipal: TfrmPrincipal
       ExplicitWidth = 152
     end
   end
-  object OpenDialog1: TOpenDialog
+  object OpenImage: TOpenDialog
     Left = 235
     Top = 188
   end
