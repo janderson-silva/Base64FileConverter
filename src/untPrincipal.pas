@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, System.NetEncoding, JPEG;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, System.NetEncoding, JPEG,
+  GraphicEx, Vcl.Buttons;
 
 type
   TfrmPrincipal = class(TForm)
@@ -12,17 +13,23 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
-    Panel5: TPanel;
-    Panel6: TPanel;
     Memo1: TMemo;
     Image1: TImage;
-    Panel7: TPanel;
-    Panel8: TPanel;
-    procedure Panel8Click(Sender: TObject);
-    procedure Panel7Click(Sender: TObject);
+    Panel9: TPanel;
+    Panel10: TPanel;
+    Label1: TLabel;
+    edtCaminhoArquivo: TEdit;
+    SpeedButton1: TSpeedButton;
+    OpenDialog1: TOpenDialog;
+    Image2: TImage;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     { Private declarations }
-    function ConvertBase64ToBitmap(Base64, FileName: string) : String;
+    function ConvertBase64ToBitmap(Base64: string) : String;
     function ConvertBitmapToBase64(AInFileName: string): String;
   public
     { Public declarations }
@@ -38,7 +45,7 @@ implementation
 { TForm1 }
 
 
-function TfrmPrincipal.ConvertBase64ToBitmap(Base64, FileName: string): String;
+function TfrmPrincipal.ConvertBase64ToBitmap(Base64: string): String;
 var
   inStream    : TStream;
   outStream   : TStream;
@@ -69,7 +76,7 @@ begin
     inStream := TFileStream.Create(DirFileInStream, fmOpenRead);
 
     try
-      DirFileOutStream := DirFileOutStream + FormatDateTime('yyyy-mm-dd HH-mm-ss',Now) + ' ' + FileName;
+      DirFileOutStream := DirFileOutStream + FormatDateTime('yyyy-mm-dd HH-mm-ss',Now)+'.jpg';
       outStream := TFileStream.Create(DirFileOutStream, fmCreate);
       try
         TNetEncoding.Base64.Decode(inStream, outStream);
@@ -114,18 +121,33 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.Panel7Click(Sender: TObject);
+procedure TfrmPrincipal.SpeedButton1Click(Sender: TObject);
 begin
-  if (Memo1.Lines.Text) <> '' then
-    Image1.Picture.LoadFromFile(ConvertBase64ToBitmap(Memo1.Lines.Text,
-                                                      'teste.jpeg'))
-  else
-    raise Exception.Create('Nenhum texto Base64 informado');
+  OpenDialog1.FileName := '';
+  if OpenDialog1.Execute then
+    if OpenDialog1.FileName <> '' then
+    begin
+      edtCaminhoArquivo.Text := OpenDialog1.FileName;
+      Image1.Picture.LoadFromFile(OpenDialog1.FileName);
+    end;
 end;
 
-procedure TfrmPrincipal.Panel8Click(Sender: TObject);
+procedure TfrmPrincipal.SpeedButton2Click(Sender: TObject);
 begin
-  Memo1.Lines.Text := ConvertBitmapToBase64(GetCurrentDir + '\teste.jpeg');
+  Memo1.Lines.Text := ConvertBitmapToBase64(edtCaminhoArquivo.Text);
+end;
+
+procedure TfrmPrincipal.SpeedButton3Click(Sender: TObject);
+var
+  DirBitmap: string;
+begin
+  if (Memo1.Lines.Text) <> '' then
+  begin
+    DirBitmap := ConvertBase64ToBitmap(Memo1.Lines.Text);
+    Image1.Picture.LoadFromFile(DirBitmap);
+  end
+  else
+    raise Exception.Create('Nenhum texto Base64 informado');
 end;
 
 end.
