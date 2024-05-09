@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, System.NetEncoding, JPEG,
-  GraphicEx, Vcl.Buttons;
+  GraphicEx, Vcl.Buttons,  pngimage;
 
 type
   TfrmPrincipal = class(TForm)
@@ -76,7 +76,7 @@ begin
     inStream := TFileStream.Create(DirFileInStream, fmOpenRead);
 
     try
-      DirFileOutStream := DirFileOutStream + FormatDateTime('yyyy-mm-dd HH-mm-ss',Now)+'.jpg';
+      DirFileOutStream := DirFileOutStream + FormatDateTime('yyyy-mm-dd HH-mm-ss',Now)+'.png';
       outStream := TFileStream.Create(DirFileOutStream, fmCreate);
       try
         TNetEncoding.Base64.Decode(inStream, outStream);
