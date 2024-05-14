@@ -24,12 +24,14 @@ type
     imgIcon: TImage;
     btnConverterBitmapToBase64: TSpeedButton;
     btnConverterBase64ToBitmap: TSpeedButton;
+    btnLimpar: TSpeedButton;
     procedure btnLocArquivoClick(Sender: TObject);
     procedure btnConverterBitmapToBase64Click(Sender: TObject);
     procedure btnConverterBase64ToBitmapClick(Sender: TObject);
+    procedure btnLimparClick(Sender: TObject);
   private
     { Private declarations }
-    function ConvertBase64ToBitmap(Base64: string) : String;
+    function ConvertBase64ToStringStream(Base64: string) : String;
     function ConvertBitmapToBase64(AInFileName: string): String;
   public
     { Public declarations }
@@ -45,7 +47,7 @@ implementation
 { TForm1 }
 
 
-function TfrmPrincipal.ConvertBase64ToBitmap(Base64: string): String;
+function TfrmPrincipal.ConvertBase64ToStringStream(Base64: string): String;
 var
   entrada, saida: TStringStream;
 begin
@@ -56,7 +58,7 @@ begin
     entrada.Position := 0;
     TNetEncoding.Base64.Decode(entrada, saida);
     saida.Position := 0;
-    imgBitmap.Picture.LoadFromStream(saida);
+    Result := saida.DataString;
   finally
     entrada.Free;
     saida.Free;
@@ -82,6 +84,14 @@ begin
   end;
 end;
 
+procedure TfrmPrincipal.btnLimparClick(Sender: TObject);
+begin
+  OpenImage.FileName := '';
+  edtCaminhoArquivo.Text := '';
+  imgBitmap.Picture := nil;
+  mmBase64.Lines.Clear;
+end;
+
 procedure TfrmPrincipal.btnLocArquivoClick(Sender: TObject);
 begin
   OpenImage.FileName := '';
@@ -100,12 +110,16 @@ end;
 
 procedure TfrmPrincipal.btnConverterBase64ToBitmapClick(Sender: TObject);
 var
-  DirBitmap: string;
+  StrToStream: TStringStream;
 begin
   if (mmBase64.Lines.Text) <> '' then
   begin
-    DirBitmap := ConvertBase64ToBitmap(mmBase64.Lines.Text);
-    imgBitmap.Picture.LoadFromFile(DirBitmap);
+    StrToStream := TStringStream.Create( ConvertBase64ToStringStream(mmBase64.Lines.Text) );
+    try
+      imgBitmap.Picture.LoadFromStream(StrToStream);
+    finally
+      StrToStream.Free;
+    end;
   end
   else
     raise Exception.Create('Nenhum texto Base64 informado');

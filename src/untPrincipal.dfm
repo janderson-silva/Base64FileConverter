@@ -33,9 +33,6 @@ object frmPrincipal: TfrmPrincipal
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 3
-    ExplicitTop = 3
-    ExplicitWidth = 888
   end
   object pnlTImageConvert: TPanel
     AlignWithMargins = True
@@ -46,8 +43,6 @@ object frmPrincipal: TfrmPrincipal
     Align = alLeft
     BevelInner = bvLowered
     TabOrder = 1
-    ExplicitTop = 44
-    ExplicitHeight = 374
     object imgBitmap: TImage
       AlignWithMargins = True
       Left = 5
@@ -184,8 +179,6 @@ object frmPrincipal: TfrmPrincipal
           Margins.Bottom = 2
           Align = alTop
           Caption = 'Localizar imagem'
-          ExplicitLeft = 0
-          ExplicitTop = 0
           ExplicitWidth = 80
         end
         object edtCaminhoArquivo: TEdit
@@ -201,9 +194,6 @@ object frmPrincipal: TfrmPrincipal
           Align = alClient
           ReadOnly = True
           TabOrder = 0
-          ExplicitLeft = 32
-          ExplicitTop = 16
-          ExplicitWidth = 121
           ExplicitHeight = 21
         end
       end
@@ -218,8 +208,6 @@ object frmPrincipal: TfrmPrincipal
     Align = alRight
     BevelInner = bvLowered
     TabOrder = 2
-    ExplicitTop = 44
-    ExplicitHeight = 374
     object btnConverterBase64ToBitmap: TSpeedButton
       Left = 2
       Top = 343
@@ -247,7 +235,6 @@ object frmPrincipal: TfrmPrincipal
       BorderStyle = bsNone
       ScrollBars = ssBoth
       TabOrder = 0
-      ExplicitHeight = 323
     end
   end
   object pnlTImageIcon: TPanel
@@ -259,8 +246,6 @@ object frmPrincipal: TfrmPrincipal
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitTop = 44
-    ExplicitHeight = 374
     object imgIcon: TImage
       AlignWithMargins = True
       Left = 3
@@ -11133,6 +11118,24 @@ object frmPrincipal: TfrmPrincipal
       ExplicitLeft = 4
       ExplicitTop = 0
       ExplicitWidth = 152
+    end
+    object btnLimpar: TSpeedButton
+      Left = 0
+      Top = 345
+      Width = 156
+      Height = 35
+      Align = alBottom
+      Caption = 'Limpar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      OnClick = btnLimparClick
+      ExplicitLeft = 4
+      ExplicitTop = 304
+      ExplicitWidth = 356
     end
   end
   object OpenImage: TOpenDialog
