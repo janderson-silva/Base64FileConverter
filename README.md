@@ -27,7 +27,7 @@ Este aplicativo é uma ferramenta útil para desenvolvedores e usuários que pre
 ![Delphi](https://img.shields.io/badge/Delphi-CC342D?style=for-the-badge&logo=delphi&logoColor=white)
 
 #### Banco de Dados:
-https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-000?style=for-the-badge&logo=postgresql)
 ![Firebird](https://img.shields.io/badge/Firebird-000?style=for-the-badge&logo=postgresql)
 
