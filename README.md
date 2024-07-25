@@ -27,8 +27,10 @@ Este aplicativo é uma ferramenta útil para desenvolvedores e usuários que pre
 ![Delphi](https://img.shields.io/badge/Delphi-CC342D?style=for-the-badge&logo=delphi&logoColor=white)
 
 #### Banco de Dados:
+https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-000?style=for-the-badge&logo=postgresql)
 ![Firebird](https://img.shields.io/badge/Firebird-000?style=for-the-badge&logo=postgresql)
 
-#### Contatos
+#### Contatos:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/janderson-silva-a2ab07b1/)
+[![Instagram](https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/janderson.silv/)
