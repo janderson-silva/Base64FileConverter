@@ -1,10 +1,11 @@
-program Base64AndBitmap;
+program Base64AndFoto;
 
 uses
   Vcl.Forms,
   untPrincipal in 'src\untPrincipal.pas' {frmPrincipal},
   Vcl.Themes,
-  Vcl.Styles;
+  Vcl.Styles,
+  untBase64Utils in 'src\untBase64Utils.pas';
 
 {$R *.res}
 
